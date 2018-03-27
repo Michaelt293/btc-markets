@@ -91,6 +91,8 @@ data Trade = Trade
     , _date    :: NominalDiffTime
     } deriving (Generic, Show, Eq)
 
+makeFieldsNoPrefix ''Trade
+
 instance FromJSON Trade where
     parseJSON = withObject "trade" $ \o -> Trade
         <$> o .: "tid"
